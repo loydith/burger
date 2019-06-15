@@ -4,6 +4,8 @@
 			<img src="./assets/img/burger.jpeg" alt="">
 			<h1> Burger! </h1>
 		</div>
+
+
 		<div class="col-md-6 text-center" class="task">
 			<div class="row">
 			  {{#each burger_data}}
@@ -23,6 +25,8 @@
 			  {{/each}}
 			</div>
 		</div>
+
+
 		<div class="col-md-6 text-center" class="task">
 			  {{#each burger_data}}
 			  	{{#if this.devoured}}
@@ -36,8 +40,8 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12 text-center enter_section">
-			<form action="/burgers/create" method="POST">
-				<input type="text" class="form-control" name="burger_name" value="" id="enter_text">
+			<form action="burger/create/{{id}}" method="POST">
+				<input type="text" class="form-control" name="burger_name" value="" id="enter_text" placeholder="Create a burger">
 				<button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button>
 			</form>
 			<p>Enter a burger you want to eat Click the "Submit" button.</p>
