@@ -1,5 +1,6 @@
 $(document).ready(function() {
-    
+
+  // devour-form
     $(".devour-form").on("submit", function(event) {
       event.preventDefault();
   
@@ -12,6 +13,7 @@ $(document).ready(function() {
         // display devoured burger in proper column
         location.reload();
       });
+
   
     });
 

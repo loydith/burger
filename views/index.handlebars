@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-md-12 text-center" id="top-bar">
 			<img src="./assets/img/burger.jpeg" alt="">
-			<h1> Burger! </h1>
+			<h1> Add a new Burger! </h1>
 		</div>
 
 
@@ -11,9 +11,7 @@
 			  {{#each burger_data}}
 			  	{{#unless this.devoured}}
 				<div class="col-md-9 text-center">
-					<pre>{{this.id}}. {{this.burger_name}}
-					</pre>
-				  		<!-- {{this.Date}} -->
+					<pre>{{this.id}}. {{this.burger_name}}</pre>	
 				</div>
 				<div class="col-md-3 text-center">
 					<form class="devour-form button-size">
@@ -40,8 +38,8 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12 text-center enter_section">
-			<form action="burger/create/{{id}}" method="POST">
-				<input type="text" class="form-control" name="burger_name" value="" id="enter_text" placeholder="Create a burger">
+			<form action="burgers/create" method="POST">
+				<input type="text" class="form-control" name="burger_name" value="" id="enter_text" placeholder="Add a burger">
 				<button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button>
 			</form>
 			<p>Enter a burger you want to eat Click the "Submit" button.</p>

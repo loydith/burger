@@ -4,17 +4,18 @@ var router = express.Router();
 
 router.get("/", function(req, res) {
   // res.render("/burgers");
-    burger.all(function(data){
-    var allBurger ={
-      burgers: data,
-    };
-    console.log(allBurger);
-    res.render("index", allBurger);
-  })
+    // burger.all(function(data){
+    // var allBurger ={
+    //   burgers: data,
+    // };
+  //   console.log(allBurger);
+  //   res.render("index", allBurger);
+  // })
+  res.redirect("/burgers");
   
 });
 
-router.get("/api/burgers", function(req, res) {
+router.get("/burgers", function(req, res) {
   // express callback 
   burger.all(function(burgerData) {
     res.render("index", { burger_data: burgerData });
@@ -23,17 +24,23 @@ router.get("/api/burgers", function(req, res) {
 });
 
 router.post("/burgers/create", function(req, res) {
-  var newBurger = req.body.burger_name;
-  burger.create(newBurger, function(result) {
+  console.log("In create route in ID" + req.body.burger_name);
+  
+  burger.create(req.body.burger_name, function(result){
     console.log(result);
-    // res.status(200).end();
-    res.redirect("/", newBurger);
-  });
+    res.redirect("/");
+  })
+// }
+  // console.log(burgerData);
+    // (newBurger, function(result) {
+    // console.log(newBurger);
+    // // res.status(200).end();
+  // });
 });
 
-router.put("/api/burger/:id", function(req, res) {
-  burger.update(req.params.id, function(res) {
-    console.log(res);
+router.put("/burgers/:id", function(req, res) {
+  burger.update(req.params.id, function(result) {
+    console.log(result);
     res.sendStatus(200);
   });
 });
